@@ -10,6 +10,10 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "@ai-sdk/deepseek": "^2.0.26",
+    "@ai-sdk/openai": "^3.0.48",
+    "@ai-sdk/react": "^3.0.139",
+    "ai": "^6.0.137",
     "next": "16.2.1",
     "react": "19.2.4",
     "react-dom": "19.2.4"

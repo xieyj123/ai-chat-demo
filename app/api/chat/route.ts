@@ -6,22 +6,18 @@ export async function POST(req: Request) {
   console.log(messages,'messages');
     try{
         // 故意添加一个错误来测试错误处理
-        if (messages[0]?.content === 'test error') {
-            throw new Error('测试错误信息：这是一个故意触发的错误');
-        }
+        // if (messages[0]?.content === 'test error') {
+        //     throw new Error('测试错误信息：这是一个故意触发的错误');
+        // }
         const result = await streamText({
             model: deepseek('deepseek-chat'),
             messages: await convertToModelMessages(messages),
           })
-        console.log(result,'result');
         
           return result.toUIMessageStreamResponse({
             sendReasoning: true,
           });
     }catch(error:any){
-        console.log('捕获到错误:', error);
-        console.log('错误类型:', typeof error);
-        console.log('错误堆栈:', error.stack);
         if (error.status === 402 || error.message?.includes('Insufficient Balance')) {
             return new Response(
                 JSON.stringify({ error: 'DeepSeek 账户余额不足，请先前往官网充值。' }),

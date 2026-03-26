@@ -43,6 +43,7 @@ export default function Page() {
           <div className="p-3 rounded-lg bg-red-100 text-red-800 max-w-[80%]">
             <strong>错误信息:</strong> {error.message || '发生了未知错误'}
           </div>
+          
         )}
       </div>
       <form onSubmit={handleSubmit} className="flex gap-2">

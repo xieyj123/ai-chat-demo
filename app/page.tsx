@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export default function Page() {
   const [input, setInput] = useState('');
-  const { messages, sendMessage, error, isLoading,stop } = useChat();
+  const { messages, sendMessage, error,stop } = useChat();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,7 +38,7 @@ export default function Page() {
             })}
           </div>
         ))}
-        {isLoading && <div className="text-gray-400">AI正在思考...</div>}
+        {/* {isLoading && <div className="text-gray-400">AI正在思考...</div>} */}
         {error && (
           <div className="p-3 rounded-lg bg-red-100 text-red-800 max-w-[80%]">
             <strong>错误信息:</strong> {error.message || '发生了未知错误'}
